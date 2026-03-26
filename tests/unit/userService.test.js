@@ -1,56 +1,5 @@
 import { userService } from '../../src/userService'
 
-// Unit test untuk service/business logic
-
-// Contoh: User service dengan berbagai fungsi
-const userService = {
-  // Fungsi untuk membuat user baru
-  createUser: (name, email) => {
-    if (!name || !email) {
-      throw new Error('Name and email are required');
-    }
-    if (!email.includes('@')) {
-      throw new Error('Invalid email format');
-    }
-    return {
-      id: Date.now(),
-      name,
-      email,
-      createdAt: new Date()
-    };
-  },
-
-  // Fungsi untuk validasi email
-  validateEmail: (email) => {
-    const emailRegex = /^[^\s@]+@([^\s@]+\.)+[^\s@]+$/;
-    return emailRegex.test(email);
-  },
-
-  // Fungsi untuk format nama
-  formatName: (name) => {
-    return name.trim().split(' ').map(word => 
-      word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
-    ).join(' ');
-  },
-
-  // Fungsi untuk menghitung umur dari tanggal lahir
-  calculateAge: (birthDate) => {
-    const today = new Date();
-    const birth = new Date(birthDate);
-    let age = today.getFullYear() - birth.getFullYear();
-    const monthDiff = today.getMonth() - birth.getMonth();
-    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
-      age--;
-    }
-    return age;
-  },
-
-  // Fungsi untuk generate username
-  generateUsername: (name) => {
-    return name.toLowerCase().replace(/\s/g, '.') + Math.floor(Math.random() * 1000);
-  }
-};
-
 describe('User Service - Unit Tests', () => {
   
   // Test 1: Create user

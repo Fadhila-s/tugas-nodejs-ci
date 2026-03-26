@@ -1,39 +1,5 @@
 import { productService } from '../../src/productService'
 
-// Product service unit tests
-const productService = {
-  // Hitung total harga
-  calculateTotal: (items) => {
-    return items.reduce((total, item) => total + (item.price * item.quantity), 0);
-  },
-  
-  // Apply diskon
-  applyDiscount: (total, discountPercent) => {
-    if (discountPercent < 0 || discountPercent > 100) {
-      throw new Error('Discount must be between 0 and 100');
-    }
-    return total * (1 - discountPercent / 100);
-  },
-  
-  // Filter produk berdasarkan kategori
-  filterByCategory: (products, category) => {
-    return products.filter(product => product.category === category);
-  },
-  
-  // Sort produk berdasarkan harga
-  sortByPrice: (products, order = 'asc') => {
-    return [...products].sort((a, b) => {
-      return order === 'asc' ? a.price - b.price : b.price - a.price;
-    });
-  },
-  
-  // Cek stok produk
-  checkStock: (product, quantity) => {
-    if (!product) return false;
-    return product.stock >= quantity;
-  }
-};
-
 describe('Product Service - Unit Tests', () => {
   const sampleProducts = [
     { id: 1, name: 'Product A', price: 100, category: 'Electronics', stock: 10 },
