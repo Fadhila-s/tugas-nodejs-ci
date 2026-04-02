@@ -1,27 +1,30 @@
-export const productService = {
-  calculateTotal: (items) => {
-    return items.reduce((total, item) => total + (item.price * item.quantity), 0);
-  },
-  
-  applyDiscount: (total, discountPercent) => {
-    if (discountPercent < 0 || discountPercent > 100) {
-      throw new Error('Discount must be between 0 and 100');
-    }
-    return total * (1 - discountPercent / 100);
-  },
-  
-  filterByCategory: (products, category) => {
-    return products.filter(product => product.category === category);
-  },
-  
-  sortByPrice: (products, order = 'asc') => {
-    return [...products].sort((a, b) => {
-      return order === 'asc' ? a.price - b.price : b.price - a.price;
-    });
-  },
-  
-  checkStock: (product, quantity) => {
-    if (!product) return false;
-    return product.stock >= quantity;
+function calculateTotalPrice(products) {
+  return products.reduce((total, p) => total + p.price, 0);
+}
+
+function applyDiscount(price, discount) {
+  if (discount < 0 || discount > 100) {
+    throw new Error('Invalid discount');
   }
+  return price - (price * discount / 100);
+}
+
+function filterByCategory(products, category) {
+  return products.filter(p => p.category === category);
+}
+
+function sortByPrice(products) {
+  return products.sort((a, b) => a.price - b.price);
+}
+
+function checkStock(product) {
+  return product.stock > 0;
+}
+
+module.exports = {
+  calculateTotalPrice,
+  applyDiscount,
+  filterByCategory,
+  sortByPrice,
+  checkStock
 };

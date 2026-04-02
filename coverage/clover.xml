@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1775099649822" clover="3.2.0">
+  <project timestamp="1775099649822" name="All files">
+    <metrics statements="13" coveredstatements="13" conditionals="8" coveredconditionals="8" methods="10" coveredmethods="10" elements="31" coveredelements="31" complexity="0" loc="13" ncloc="13" packages="2" files="3" classes="3"/>
+    <package name="src">
+      <metrics statements="13" coveredstatements="13" conditionals="8" coveredconditionals="8" methods="10" coveredmethods="10"/>
+      <file name="productService.js" path="C:\Users\ASUS\tugas-nodejs-ci\src\productService.js">
+        <metrics statements="8" coveredstatements="8" conditionals="4" coveredconditionals="4" methods="8" coveredmethods="8"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="6" count="2" type="cond" truecount="4" falsecount="0"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+      </file>
+      <file name="userService.js" path="C:\Users\ASUS\tugas-nodejs-ci\src\userService.js">
+        <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+        <line num="2" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="3" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.test">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="setup.js" path="C:\Users\ASUS\tugas-nodejs-ci\src\test\setup.js">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+  </project>
+</coverage>

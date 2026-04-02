@@ -1,39 +1,15 @@
-export const userService = {
-  createUser: (name, email) => {
-    if (!name || !email) {
-      throw new Error('Name and email are required');
-    }
-    if (!email.includes('@')) {
-      throw new Error('Invalid email format');
-    }
-    return {
-      id: Date.now(),
-      name,
-      email,
-      createdAt: new Date()
-    };
-  },
+function createUser(name, email, birthYear) {
+  if (!name) throw new Error('Name required');
+  if (!email.includes('@')) throw new Error('Invalid email');
 
-  validateEmail: (email) => {
-    const emailRegex = /^[^\s@]+@([^\s@]+\.)+[^\s@]+$/;
-    return emailRegex.test(email);
-  },
+  return { name, email, birthYear };
+}
 
-  formatName: (name) => {
-    return name.trim().split(' ').map(word =>
-      word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
-    ).join(' ');
-  },
+function calculateAge(birthYear) {
+  return new Date().getFullYear() - birthYear;
+}
 
-  calculateAge: (birthDate) => {
-    const today = new Date();
-    const birth = new Date(birthDate);
-    let age = today.getFullYear() - birth.getFullYear();
-    const monthDiff = today.getMonth() - birth.getMonth();
-
-    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
-      age--;
-    }
-    return age;
-  }
+module.exports = {
+  createUser,
+  calculateAge
 };
